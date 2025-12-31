@@ -1,0 +1,233 @@
+/**
+ * PerformanceChart.css
+ * Asset Performance Bar Chart styling
+ */
+
+.performance-chart {
+  width: 100%;
+  max-width: 1400px;
+  margin-top: 1rem;
+}
+
+.chart-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(232, 200, 90, 0.8);
+  text-align: center;
+  margin: 0 0 0.5rem 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.1em;
+}
+
+.chart-period {
+  display: block;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 400;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+/* Bar Chart Container */
+.bar-chart-container {
+  display: flex;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(15, 15, 15, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 2.5rem 1.25rem 0.75rem 0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  height: 240px;
+}
+
+/* Y-Axis */
+.bar-y-axis {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 0.75rem;
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  min-width: 50px;
+  text-align: right;
+}
+
+/* Chart Area */
+.bar-chart-area {
+  flex: 1;
+  position: relative;
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Grid Lines */
+.bar-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.grid-line-h {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.zero-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Bars Container */
+.bars-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 100%;
+  padding: 0 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.bar-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  max-width: 80px;
+  height: 100%;
+  position: relative;
+}
+
+.bar-value {
+  position: absolute;
+  top: -6px;
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transform: translateY(-100%);
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.bar {
+  width: 70%;
+  position: absolute;
+  bottom: 0;
+  border-radius: 2px 2px 0 0;
+  transition: height 0.5s ease-out;
+  min-height: 2px;
+}
+
+/* Gold bar gradient highlight */
+.bar-highlight {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 40%;
+  background: linear-gradient(90deg, rgba(255, 255, 200, 0.4), transparent);
+  border-radius: 2px 0 0 0;
+}
+
+.bar-highlight.silver {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.3), transparent);
+}
+
+.bar-label {
+  position: absolute;
+  bottom: -24px;
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* Footnote */
+.chart-footnote {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-align: center;
+  margin: 1.75rem 0 0 0;
+  font-style: normal;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .bar-chart-container {
+    height: 200px;
+  }
+
+  .bar-label {
+    font-size: 0.6rem;
+    bottom: -20px;
+  }
+
+  .bar-value {
+    font-size: 0.7rem;
+  }
+
+  .bar-y-axis {
+    font-size: 0.65rem;
+    min-width: 40px;
+  }
+
+  .chart-title {
+    font-size: 0.8rem;
+  }
+
+  .chart-period {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .bar-chart-container {
+    height: 180px;
+  }
+
+  .bar-wrapper {
+    max-width: 40px;
+  }
+
+  .bar-label {
+    font-size: 0.55rem;
+    bottom: -18px;
+  }
+
+  .bar-value {
+    font-size: 0.65rem;
+  }
+
+  .bar-y-axis {
+    font-size: 0.6rem;
+    min-width: 35px;
+  }
+
+  .chart-title {
+    font-size: 0.75rem;
+  }
+
+  .chart-period {
+    font-size: 0.65rem;
+  }
+
+  .chart-footnote {
+    font-size: 0.6rem;
+  }
+}
